@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import './App.css';
+import { BrowserRouter as Router, NavLink, Route, Routes } from 'react-router-dom';
 
 const Home = () => {
   return <h1>Strona Startowa</h1>;
@@ -7,6 +8,8 @@ const Home = () => {
 
 const News = () => <h1>Aktualności</h1>;
 const Contact = () => <h1>Kontakt</h1>;
+
+const ErrorPage = () => <h1>Strona nie istnieje</h1>;
 
 function App() {
   return (
@@ -16,22 +19,27 @@ function App() {
           <nav>
             <ul>
               <li>
-                <Link to="/">Start</Link>
+                <NavLink to="/" className="home"
+                  activeStyle={{
+                    backgroundColor: 'gray',
+                    letterSpacing: '2px',
+                  }}>Start</NavLink>
               </li>
               <li>
-                <Link to="/news">Aktualności</Link>
+                <NavLink to="/news" className="news">Aktualności</NavLink>
               </li>
               <li>
-                <Link to="/contact">Kontakt</Link>
+                <NavLink to="/contact" className="contact">Kontakt</NavLink>
               </li>
             </ul>
           </nav>
         </header>
         <section>
           <Routes>
-            <Route path="/" exact element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/news" element={<News />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </section>
       </div>
