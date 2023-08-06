@@ -1,11 +1,11 @@
-import React from "react";
-import "./App.css";
-import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 
 const Home = () => {
   return <h1>Strona Startowa</h1>;
 };
-const News = () => <h1>News</h1>;
+
+const News = () => <h1>Aktualności</h1>;
 const Contact = () => <h1>Kontakt</h1>;
 
 function App() {
@@ -28,10 +28,10 @@ function App() {
           </nav>
         </header>
         <section>
-          <Routes >
-          <Route path="/" component={Home} />
-          <Route path="/news" component={News} />
-          <Route path="/contact" component={Contact} />
+          <Routes>
+            <Route path="/" exact element={<Home />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </section>
       </div>
