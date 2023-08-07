@@ -17,7 +17,7 @@ function App() {
         <aside>
           {<Nav />}
         </aside>
-        <section className='page'>
+        <section>
           {<Page />}
         </section>
       </main>
