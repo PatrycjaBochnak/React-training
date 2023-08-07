@@ -31,3 +31,6 @@ footer {
   text-align: center;
   text-transform: uppercase;
 }
+section {
+  width: 100% auto;
+}
